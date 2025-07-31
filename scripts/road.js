@@ -11,6 +11,17 @@ class Road {
         const infinity = 1000000; // large value to mimic infinity
         this.top = -infinity;
         this.bottom = infinity;
+
+        const topLeft = {x: this.left, y: this.top};
+        const topRight = {x: this.right, y: this.top};
+        const bottomLeft = {x: this.left, y: this.bottom};
+        const bottomRight = {x: this.right, y: this.bottom};
+
+        // segmented borders, eg. topLeft->bottomLeft forms one border on left side of the road
+        this.borders = [
+            [topLeft, bottomLeft],
+            [topRight, bottomRight]
+        ]
     }
 
     getLaneCenter(laneIndex){
@@ -19,24 +30,27 @@ class Road {
     }
 
     draw(ctx) {
-        ctx.lineWidth = 5;
+        ctx.lineWidth = 4;
         ctx.strokeStyle = "white";
 
         // render lanes
-        for (let i = 0; i <= this.laneCount; i++) {
+        for (let i = 1; i <= this.laneCount-1; i++) {
             const x = linearInterpolate(this.left, this.right, i / this.laneCount); // find interpolation from (left,right) 
-
-            if(i>0 && i<this.laneCount){
-                ctx.setLineDash([20,20]);
-            }else{
-                ctx.setLineDash([]);
-            }
-
+            ctx.setLineDash([20,20]);
             ctx.beginPath();
             ctx.moveTo(x, this.top);
             ctx.lineTo(x, this.bottom);
             ctx.stroke();
         }
+
+        ctx.setLineDash([]);
+        this.borders.forEach((border)=> {
+            // render borders
+            ctx.beginPath();
+            ctx.moveTo(border[0].x, border[0].y);
+            ctx.lineTo(border[1].x, border[1].y);
+            ctx.stroke();
+        });
     }
 
 }

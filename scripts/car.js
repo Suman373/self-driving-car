@@ -7,17 +7,17 @@ class Car {
         this.height = height;
 
         this.speed = 0;
-        this.acceleration = 0.1;
-        this.sideways = 2;
-        this.maxSpeed = 3;
-        this.friction = 0.05;
+        this.acceleration = 0.3;
+        this.maxSpeed = 5;
+        this.friction = 0.02;
         this.angle = 0;
+        this.sensor = new Sensor(this); // pass car context
         this.controls = new Controls();
     }
 
-    update() {
+    update(roadBorders) {
         this.#move();
-
+        this.sensor.update(roadBorders); 
     }
 
     // method for movement of car 
@@ -80,5 +80,7 @@ class Car {
         ctx.rect(-this.width / 2, - this.height / 2, this.width, this.height);
         ctx.fill();
         ctx.restore();
+        
+        this.sensor.draw(ctx); // car responsible for rendering it's own sensors
     }
 }
