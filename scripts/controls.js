@@ -26,7 +26,7 @@ class Controls {
                     this.reverse = true;
                     break;
             }
-            console.table(this);
+            // console.table(this);
         }
         // no action on key release
         document.onkeyup = (e) => {
@@ -44,7 +44,7 @@ class Controls {
                     this.reverse = false;
                     break;
             }
-            console.table(this);
+            // console.table(this);
         }
     }
 
