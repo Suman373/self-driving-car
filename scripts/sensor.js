@@ -22,9 +22,9 @@ class Sensor {
         }
     }
 
-    #getReading() {
+    #getReading(ray, roadBorders) {
         let intersections = [];
-        for (let i = 0; i < this.rayCount; i++) {
+        for (let i = 0; i < roadBorders.length; i++) {
             const intersect = getIntersection(
                 ray[0],
                 ray[1], // one segment
@@ -49,7 +49,7 @@ class Sensor {
         this.rays = [];
         for (let i = 0; i < this.rayCount; i++) {
             const t = this.rayCount === 1 ? 0.5 : i / (this.rayCount - 1); //for 1 ray -> 0.5
-            let rayAngle = linearInterpolate(this.raySpread / 2, -this.raySpread / 2, t);
+            let rayAngle = lerp(this.raySpread / 2, -this.raySpread / 2, t);
             rayAngle += this.car.angle; // add car's angle 
 
             const start = {

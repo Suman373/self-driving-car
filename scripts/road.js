@@ -11,7 +11,7 @@ class Road {
         const infinity = 1000000; // large value to mimic infinity
         this.top = -infinity;
         this.bottom = infinity;
-
+        
         const topLeft = {x: this.left, y: this.top};
         const topRight = {x: this.right, y: this.top};
         const bottomLeft = {x: this.left, y: this.bottom};
@@ -35,7 +35,7 @@ class Road {
 
         // render lanes
         for (let i = 1; i <= this.laneCount-1; i++) {
-            const x = linearInterpolate(this.left, this.right, i / this.laneCount); // find interpolation from (left,right) 
+            const x = lerp(this.left, this.right, i / this.laneCount); // find interpolation from (left,right) 
             ctx.setLineDash([20,20]);
             ctx.beginPath();
             ctx.moveTo(x, this.top);
