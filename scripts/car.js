@@ -13,8 +13,13 @@ class Car {
         this.angle = 0;
         this.damaged = false;
 
+        this.useBrain = controlType == "AI";
+
         if (controlType != "NPC") {
             this.sensor = new Sensor(this); // pass car context
+            this.brain = new ANN(
+                [this.sensor.rayCount, 6, 4]
+            ); // 6-hidden neurons, 4 - output : 4 directions
         }
         this.controls = new Controls(controlType);
     }
@@ -27,6 +32,16 @@ class Car {
         }
         if (this.sensor) {
             this.sensor.update(roadBorders, traffic);
+            const offsets = this.sensor.readings.map((sensor) => sensor == null ? 0 : 1 - sensor.offset);
+            // if object is close, neurons will receive higher values
+            const outputs = ANN.feedForward(offsets, this.brain);
+
+            if (this.useBrain) {
+                this.controls.forward = outputs[0];
+                this.controls.left = outputs[1];
+                this.controls.right = outputs[2];
+                this.controls.reverse = outputs[3];
+            }
         }
     }
 
