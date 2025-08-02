@@ -11,19 +11,20 @@ class Sensor {
         this.readings = []; // detect road borders
     }
 
-    update(roadBorders) {
+    update(roadBorders, traffic) {
         this.#castRays();
         this.readings = [];
 
         for (let i = 0; i < this.rays.length; i++) {
             this.readings.push(
-                this.#getReading(this.rays[i], roadBorders)
+                this.#getReading(this.rays[i], roadBorders, traffic)
             )
         }
     }
 
-    #getReading(ray, roadBorders) {
+    #getReading(ray, roadBorders, traffic) {
         let intersections = [];
+        // check intersection of ray with road borders
         for (let i = 0; i < roadBorders.length; i++) {
             const intersect = getIntersection(
                 ray[0],
@@ -33,6 +34,22 @@ class Sensor {
             );
             if (intersect) {
                 intersections.push(intersect);
+            }
+        }
+        // check intersection of ray with cars in traffic
+        for(let i=0;i<traffic.length;i++){
+            const polygon = traffic[i].polygon;
+            // all points of polygon
+            for(let j=0;j<polygon.length;j++){
+                const intersect = getIntersection(
+                    ray[0],
+                    ray[1],
+                    polygon[j],
+                    polygon[(j+1)%polygon.length]
+                );
+                if(intersect){
+                    intersections.push(intersect);
+                }
             }
         }
         if (intersections.length === 0) {

@@ -1,6 +1,6 @@
 class Car {
 
-    constructor(x, y, width, height) {
+    constructor(x, y, width, height, controlType, maxSpeed = 5) {
         this.x = x;
         this.y = y;
         this.width = width;
@@ -8,28 +8,36 @@ class Car {
 
         this.speed = 0;
         this.acceleration = 0.3;
-        this.maxSpeed = 5;
+        this.maxSpeed = maxSpeed;
         this.friction = 0.02;
         this.angle = 0;
         this.damaged = false;
 
-
-        this.sensor = new Sensor(this); // pass car context
-        this.controls = new Controls();
+        if (controlType != "NPC") {
+            this.sensor = new Sensor(this); // pass car context
+        }
+        this.controls = new Controls(controlType);
     }
 
-    update(roadBorders) {
+    update(roadBorders, traffic) {
         if (!this.damaged) {
             this.#move();
             this.polygon = this.#createPolygon();
-            this.damaged = this.#assessDamage(roadBorders);
+            this.damaged = this.#assessDamage(roadBorders, traffic);
         }
-        this.sensor.update(roadBorders);
+        if (this.sensor) {
+            this.sensor.update(roadBorders, traffic);
+        }
     }
 
-    #assessDamage(roadBorders) {
+    #assessDamage(roadBorders, traffic) {
         for (let i = 0; i < roadBorders.length; i++) {
             if (checkPolysIntersect(this.polygon, roadBorders[i])) {
+                return true;
+            }
+        }
+        for (let i = 0; i < traffic.length; i++) {
+            if (checkPolysIntersect(this.polygon, traffic[i].polygon)) {
                 return true;
             }
         }
@@ -132,11 +140,11 @@ class Car {
         this.y -= Math.cos(this.angle) * this.speed;
     }
 
-    draw(ctx) {
+    draw(ctx, color) {
         if (this.damaged) {
             ctx.fillStyle = "gray";
         } else {
-            ctx.fillStyle = "black";
+            ctx.fillStyle = color;
         }
         ctx.beginPath();
         ctx.moveTo(this.polygon[0].x, this.polygon[0].y); // from 1 point
@@ -144,7 +152,9 @@ class Car {
             ctx.lineTo(this.polygon[i].x, this.polygon[i].y); // to other points
         }
         ctx.fill();
-        this.sensor.draw(ctx); // car responsible for rendering it's own sensors
+        if (this.sensor) {
+            this.sensor.draw(ctx); // car responsible for rendering it's own sensors
+        }
     }
 }
 
