@@ -39,3 +39,16 @@ function checkPolysIntersect(poly1, poly2) {
     }
     return false;
 }
+
+// get rgba values from weights value
+function getRGBA(value) {
+    // value -> [-1,1]
+    const alpha = Math.abs(value); // intensity depends on the value 
+    const R = value < 0 ? 255 : 0; // show red when -ve value
+    const G = value > 0 ? 255 : 0;  // show skyblue when +ve value
+    const B = G;
+    // const R = value > 0 ? 255 : 0;
+    // const G = R;
+    // const B = value < 0 ? 255: 0;
+    return "rgba(" + R + "," + G + "," + B + "," + alpha + ")";
+}

@@ -1,9 +1,13 @@
-const canvas = document.getElementById('myCanvas');
-canvas.width = 200;
+const carCanvas = document.getElementById('carCanvas');
+carCanvas.width = 200;
+const annCanvas = document.getElementById("annCanvas");
+annCanvas.width = 300;
 
-const ctx = canvas.getContext("2d");
-const road = new Road(canvas.width/2, canvas.width*0.9);
-const car = new Car(road.getLaneCenter(1),100,30,50, "AI");
+const carCtx = carCanvas.getContext("2d");
+const annCtx = annCanvas.getContext("2d");
+
+const road = new Road(carCanvas.width/2, carCanvas.width*0.9);
+const car = new Car(road.getLaneCenter(1),100,30,50, "KEYS");
 const traffic = [
     new Car(road.getLaneCenter(1), 0, 30, 50, "NPC", 2),
 ];
@@ -17,14 +21,21 @@ function animate(){
         traffic[i].update(road.borders, []); // npc car must interact with simulated cars, so no traffic 
     }
     car.update(road.borders, traffic);
-    canvas.height = window.innerHeight;
-    ctx.save();
-    ctx.translate(0,-car.y+canvas.height*0.7); // move the canvas opposite to car direction
-    road.draw(ctx);
+
+    carCanvas.height = window.innerHeight;
+    annCanvas.height = window.innerHeight;
+
+    carCtx.save();
+    carCtx.translate(0,-car.y+carCanvas.height*0.7); // move the carCanvas opposite to car direction
+    road.draw(carCtx);
     for(let i=0;i<traffic.length;i++){
-        traffic[i].draw(ctx,"red");
+        traffic[i].draw(carCtx,"red");
     }
-    car.draw(ctx,"blue");
-    ctx.restore();
+    car.draw(carCtx,"blue");
+    carCtx.restore();
+
+    // rendering ann with help of the canvas context and car's brain
+    Visualizer.drawNetwork(annCtx, car.brain);
+
     requestAnimationFrame(animate);
 }
