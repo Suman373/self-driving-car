@@ -7,7 +7,28 @@
 body{
     background:gray;
     overflow: hidden;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap:1rem;
+}
+
+#buttonsGrp{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+#buttonsGrp button{
+    border: none;
+    border-radius: 10px;
+    padding: 5px;
+    display: grid;
+    place-content: center;
+}
+
+#buttonsGrp button:hover{
+    background-color: skyblue;
 }
 
 #carCanvas{

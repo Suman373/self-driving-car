@@ -52,3 +52,47 @@ function getRGBA(value) {
     // const B = value < 0 ? 255: 0;
     return "rgba(" + R + "," + G + "," + B + "," + alpha + ")";
 }
+
+
+const TRAFFIC_DATA = [
+    {
+        "lane": 0,
+        "y": -300
+    },
+    {
+        "lane": 1,
+        "y": -700
+    },
+    {
+        "lane": 2,
+        "y": -900
+    },
+    {
+        "lane": 1,
+        "y": -500
+    },
+    {
+        "lane": 0,
+        "y": -600
+    },
+    {
+        "lane": 1,
+        "y": -900
+    },
+    {
+        "lane": 2,
+        "y": -350
+    },
+    {
+        "lane": 1,
+        "y": -1000
+    },
+    {
+        "lane": 2,
+        "y": -900
+    },
+    {
+        "lane": 2,
+        "y": -1200
+    }
+]

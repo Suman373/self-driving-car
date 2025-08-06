@@ -21,38 +21,6 @@ class Controls {
         // }
     }
 
-    #startRandomNPCBehavior() {
-        const states = [
-            { forward: true },
-            { forward: true, left: true },
-            { forward: true, right: true },
-        ];
-
-        const pickNewAction = () => {
-            const state = states[Math.floor(Math.random() * states.length)];
-
-            // Reset current state
-            this.forward = false;
-            this.reverse = false;
-            this.left = false;
-            this.right = false;
-
-            // Apply new state
-            this.forward = !!state.forward;
-            this.left = !!state.left;
-            this.right = !!state.right;
-
-            console.log("NPC Action:", state);
-
-            // Pick next action in 2–4 seconds
-            const delay = 100 + Math.random() * 100;
-            setTimeout(pickNewAction, delay);
-        };
-
-        pickNewAction();
-    }
-
-
     #addKeyboardListeners() {
         // action on key press
         document.onkeydown = (e) => {

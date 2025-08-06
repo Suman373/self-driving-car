@@ -7,13 +7,36 @@ class ANN {
             ));
         }
     }
-
+    
     static feedForward(givenInputs,network){
-        let outputs = Level.feedForward(givenInputs, network.levels[0]);// generate outputs from 1st level
+        let outputs = Level.feedForward(givenInputs, network.levels[0]);// generate outputs from 1st level (also the input level)
         for(let i=1;i<network.levels.length;i++){
             outputs = Level.feedForward(outputs, network.levels[i]);
         }
         return outputs;
+    }
+
+    // mutates the network by changing the biases and weights
+    static mutate(network, amount=1){
+        network.levels.forEach((level)=> {
+            for(let i=0;i<level.biases.length;i++){
+                level.biases[i] = lerp(
+                    level.biases[i],
+                    Math.random()*2-1, // [-1,1]
+                    amount // shift bias towards the random value by param amount
+                )
+            }
+
+            for(let i=0;i<level.weights.length;i++){
+                for(let j=0;j<level.weights[i].length;j++){
+                    level.weights[i][j] = lerp(
+                        level.weights[i][j],
+                        Math.random()*2-1,
+                        amount
+                    )
+                }
+            }
+        });
     }
 }
 

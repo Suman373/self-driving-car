@@ -4,12 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car with Neural Network</title>
+    <title>Self driving car with ANN</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <canvas id="carCanvas"></canvas>
+    <div id="buttonsGrp">
+        <button onclick="save()">🗃️</button>
+        <button onclick="discard()">🗑️</button>
+    </div>
     <canvas id="annCanvas"></canvas>
     <script src="/scripts/utils.js"></script>
     <script src="/scripts/road.js"></script>
