@@ -6,11 +6,11 @@ const carCtx = carCanvas.getContext("2d");
 const annCtx = annCanvas.getContext("2d");
 const road = new Road(carCanvas.width/2, carCanvas.width*0.9);
 
-const N = 500; // for parallelization
+const N = 1; // for parallelization
 const cars = generateCars(N);
 
 
-const traffic = TRAFFIC_DATA?.map((tr)=> new Car(road.getLaneCenter(tr.lane),  tr.y, 30,50,"NPC",2));
+const traffic = TRAFFIC_DATA?.map((tr)=> new Car(road.getLaneCenter(tr.lane),  tr.y, 30,50,"NPC",2, getRandomColor()));
 
 let heroCar = cars[0];
 

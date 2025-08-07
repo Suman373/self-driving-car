@@ -54,22 +54,20 @@ function getRGBA(value) {
 }
 
 
+function getRandomColor(){
+    const hue = 290+Math.random()*260;
+    return "hsl("+hue+", 100%, 60%)";
+}
+
+
 const TRAFFIC_DATA = [
     {
         "lane": 0,
         "y": -300
     },
     {
-        "lane": 1,
-        "y": -700
-    },
-    {
         "lane": 2,
-        "y": -900
-    },
-    {
-        "lane": 1,
-        "y": -500
+        "y": -300
     },
     {
         "lane": 0,
@@ -77,22 +75,34 @@ const TRAFFIC_DATA = [
     },
     {
         "lane": 1,
-        "y": -900
+        "y": -600
     },
     {
         "lane": 2,
-        "y": -350
+        "y": -1500
+    },
+    {
+        "lane": 0,
+        "y": -1200
     },
     {
         "lane": 1,
-        "y": -1000
+        "y": -1500
+    },
+    {
+        "lane": 0,
+        "y": -1800
+    },
+    {
+        "lane": 1,
+        "y": -2200
     },
     {
         "lane": 2,
-        "y": -900
+        "y": -2500
     },
     {
-        "lane": 2,
-        "y": -1200
-    }
+        "lane": 0,
+        "y": -3000
+    },
 ]
