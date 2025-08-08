@@ -1,6 +1,6 @@
 class Car {
 
-    constructor(x, y, width, height, controlType, maxSpeed = 5, color = "blue") {
+    constructor(x, y, width, height, controlType, maxSpeed = 5, color = "red") {
         this.x = x;
         this.y = y;
         this.width = width;
@@ -172,7 +172,7 @@ class Car {
         this.y -= Math.cos(this.angle) * this.speed;
     }
 
-    draw(ctx, color, drawSensor = false) {
+    draw(ctx, drawSensor = false) {
         if (this.sensor && drawSensor) {
             this.sensor.draw(ctx); // car responsible for rendering it's own sensors
         }

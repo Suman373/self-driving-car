@@ -35,9 +35,15 @@ function discard(){
 function generateCars(N){
     const cars = [];
     for(let i=0;i<N;i++){
-        cars.push(new Car(road.getLaneCenter(1),100,30,50,"AI"));
+        cars.push(new Car(road.getLaneCenter(1),100,30,50,"AI",5));
     }
     return cars;
+}
+
+function toggleRays(){
+    if(heroCar && heroCar.sensor){
+        heroCar.sensor.toggleRays();
+    }
 }
 
 animate();
@@ -68,7 +74,7 @@ function animate(time){
     for(let i=0;i<cars.length;i++){
         cars[i].draw(carCtx,"blue");
     }
-    carCanvas.globalAlpha=1;
+    carCtx.globalAlpha=1;
     heroCar.draw(carCtx,"blue",true); // main car
     carCtx.restore();
     annCtx.lineDashOffset=-time/50;

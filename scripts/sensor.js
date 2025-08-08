@@ -5,10 +5,14 @@ class Sensor {
         this.rayCount = 6;
         this.rayLength = 200;
         this.raySpread = Math.PI/2; // 90deg for rays
-
+        this.showRays = false;
         // segments of ray
         this.rays = [];
         this.readings = []; // detect road borders
+    }
+
+    toggleRays(){
+        this.showRays = !this.showRays;
     }
 
     update(roadBorders, traffic) {
@@ -83,6 +87,9 @@ class Sensor {
     }
 
     draw(ctx) {
+        if(!this.showRays){
+            return;
+        }
         for (let i = 0; i < this.rayCount; i++) {
             let end = this.rays[i][1]; // default end {x,y}
             if (this.readings[i]) {
