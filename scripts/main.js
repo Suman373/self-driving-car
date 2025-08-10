@@ -18,7 +18,7 @@ if(localStorage.getItem('heroCarBrain')){
     // make all cars have hero brain
     for(let i=0;i<cars.length;i++){
         cars[i].brain = JSON.parse(localStorage.getItem('heroCarBrain'));
-        if(i!=0){ // preserve the first car and mutate rest of the car's brain
+        if(i!==0){ // preserve the first car and mutate rest of the car's brain
             ANN.mutate(cars[i].brain,0.1);
         }
     }
@@ -51,14 +51,14 @@ animate();
 function animate(time){
     // updating cars when simulating traffic
     for(let i=0;i<traffic.length;i++){
-        traffic[i].update(road.borders, []); // npc car must interact with simulated cars, so no traffic 
+        traffic[i].update(road.borders, []); // traffic cars will not interact with each other 
     }
    for(let i=0;i<cars.length;i++){
      cars[i].update(road.borders, traffic);
    }
 
    // main car with forward dir (min y value) => fitness function
-   heroCar = cars.find((cr)=> cr.y == Math.min(...cars.map(c=>c.y)));
+   heroCar = cars.find((cr)=> cr.y === Math.min(...cars.map(c=>c.y)));
 
 
     carCanvas.height = window.innerHeight;

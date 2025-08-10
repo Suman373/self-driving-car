@@ -24,7 +24,7 @@ class ANN {
                     level.biases[i],
                     Math.random()*2-1, // [-1,1]
                     amount // shift bias towards the random value by param amount
-                )
+                );
             }
 
             for(let i=0;i<level.weights.length;i++){
@@ -33,7 +33,7 @@ class ANN {
                         level.weights[i][j],
                         Math.random()*2-1,
                         amount
-                    )
+                    );
                 }
             }
         });

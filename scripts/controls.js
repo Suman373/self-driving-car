@@ -16,7 +16,7 @@ class Controls {
                 break;
         }
 
-        // if (type == "NPC") {
+        // if (type === "NPC") {
         //     this.#startRandomNPCBehavior();
         // }
     }
@@ -39,7 +39,7 @@ class Controls {
                     break;
             }
             // console.table(this);
-        }
+        };
         // no action on key release
         document.onkeyup = (e) => {
             switch (e.key) {
@@ -57,7 +57,7 @@ class Controls {
                     break;
             }
             // console.table(this);
-        }
+        };
     }
 
 }

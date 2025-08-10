@@ -10,9 +10,9 @@ class Visualizer {
         const levelHeight = height / network.levels.length;
 
         for (let i = 0; i < network.levels.length; i++) {
-            const lvlTop = top + lerp(height - levelHeight, 0, network.levels.length == 1 ? 0.5 : i / (network.levels.length - 1));
+            const lvlTop = top + lerp(height - levelHeight, 0, network.levels.length === 1 ? 0.5 : i / (network.levels.length - 1));
             ctx.setLineDash([7,3]);
-            Visualizer.drawLevel(ctx, network.levels[i], left, lvlTop, width, levelHeight, i==network.levels.length-1 ? ['↑', '←', '→', '↓'] :[]);
+            Visualizer.drawLevel(ctx, network.levels[i], left, lvlTop, width, levelHeight, i===network.levels.length-1 ? ['↑', '←', '→', '↓'] :[]);
             
         }
     }
@@ -34,7 +34,7 @@ class Visualizer {
                 ctx.lineTo(
                     Visualizer.#getNodeX(outputs, j, left, right),
                     top
-                )
+                );
                 ctx.lineWidth = 2;
                 ctx.strokeStyle = getRGBA(weights[i][j]);
                 ctx.stroke();
@@ -86,7 +86,7 @@ class Visualizer {
         return lerp(
             left,
             right,
-            nodes.length == 1 ? 0.5 : index / (nodes.length - 1)
+            nodes.length === 1 ? 0.5 : index / (nodes.length - 1)
         );
     }
 

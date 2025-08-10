@@ -1,6 +1,6 @@
 class Car {
 
-    constructor(x, y, width, height, controlType, maxSpeed = 5, color = "red") {
+    constructor(x, y, width, height, controlType, maxSpeed = 5, color = "blue") {
         this.x = x;
         this.y = y;
         this.width = width;
@@ -13,9 +13,9 @@ class Car {
         this.angle = 0;
         this.damaged = false;
 
-        this.useBrain = controlType == "AI";
+        this.useBrain = controlType === "AI";
 
-        if (controlType != "NPC") {
+        if (controlType !== "NPC") {
             this.sensor = new Sensor(this); // pass car context
             this.brain = new ANN(
                 [this.sensor.rayCount, 6, 4]
@@ -36,9 +36,7 @@ class Car {
 
             maskCtx.globalCompositeOperation = "destination-atop"; // drawing new shape where it overlaps w our existing canvas content
             maskCtx.drawImage(this.img, 0, 0, this.width, this.height);
-
-        }
-
+        };
     }
 
     update(roadBorders, traffic) {
@@ -49,7 +47,7 @@ class Car {
         }
         if (this.sensor) {
             this.sensor.update(roadBorders, traffic);
-            const offsets = this.sensor.readings.map((sensor) => sensor == null ? 0 : 1 - sensor.offset);
+            const offsets = this.sensor.readings.map((sensor) => sensor === null ? 0 : 1 - sensor.offset);
             // if object is close, neurons will receive higher values
             const outputs = ANN.feedForward(offsets, this.brain);
 

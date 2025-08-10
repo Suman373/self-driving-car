@@ -8,7 +8,7 @@ function getIntersection(A, B, C, D) {
     const top_u = (A.y - C.y) * (B.x - A.x) - (B.y - A.y) * (A.x - C.x);
     const bottom = (D.y - C.y) * (B.x - A.x) - (D.x - C.x) * (B.y - A.y);
 
-    if (bottom != 0) {
+    if (bottom !== 0) {
         const t = top_t / bottom; // interpolation factor (offset on the segment)
         const u = top_u / bottom;
         if (t >= 0 && t <= 1 && u >= 0 && u <= 1) { // t ε [0,1]
@@ -31,7 +31,7 @@ function checkPolysIntersect(poly1, poly2) {
                 poly1[(i + 1) % poly1.length],
                 poly2[j],
                 poly2[(j + 1) % poly2.length],
-            )
+            );
             if (intersected) {
                 return true;
             }
@@ -105,4 +105,24 @@ const TRAFFIC_DATA = [
         "lane": 0,
         "y": -3000
     },
-]
+    {
+        "lane": 1,
+        "y": -3400
+    },
+    {
+        "lane": 2,
+        "y": -3800
+    },
+    {
+        "lane": 1,
+        "y": -3800
+    },
+    {
+        "lane": 2,
+        "y": -4000
+    },
+    {
+        "lane": 2,
+        "y": -4400
+    },
+];
