@@ -40,7 +40,6 @@ You can visit this link for a live demo - [Click here](https://google.com)
 
 
 
-
 ### Local Development & Setup
 
  Getting started with the project locally
@@ -198,5 +197,5 @@ For feedbacks reach out to me at iamsuman898@gmail.com
 
 ### License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+[MIT](./LICENSE)
 
