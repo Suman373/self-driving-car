@@ -6,7 +6,7 @@ This project simulates a self-driving car in a 2D environment powered by a simpl
 
 
 ### Demo
-You can visit this link for a live demo - [Click here](https://google.com)
+You can visit this link for a live demo - [Click here](https://suman373.github.io/self-driving-car/)
 
 
 
