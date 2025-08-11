@@ -14,29 +14,34 @@ You can visit this link for a live demo - [Click here](https://google.com)
 
 - [Key Features](#key-features)
 - [Local Development & Setup](#local-development--setup)
-- [Technologies Used](#technologies-used)
+- [Tech Stack](#tech-stack)
 - [Usage](#usage)
-- [Theory & Neural Network Basics](#neural-network-basics)
-- [Screenshot](#screenshots)
+- [Theory & Neural Network Basics](#theory--neural-network-basics)
+- [Screenshots](#screenshots)
 - [Acknowledgements](#acknowledgements)
-- [Feedbacks](#feedbacks)
+- [Feedback](#feedback)
 - [License](#license)
-### Key Features
+  
+
+### Key Features 
 
 - **Ray-based Sensor System**: Uses ray tracing to cast vision rays and detect obstacles such as other cars in traffic and road boundaries.
 
-- **Neural Network Control**: The car's movement decisions (forward, left, right, reverse) are driven by ANN outputs. (It also has key based controls for debugging purpose).
-
 - **Collision Detection**: Assesses damage based on polygon intersections with borders and traffic.
+
 
 - **Realistic Car Physics**: Acceleration, friction, and turning are handled like real world physics.
 
+- **Neural Network Control**: The car's movement decisions (forward, left, right, reverse) are driven by ANN outputs. (It also has key based controls for debugging purpose).
+
 - **Genetic Mutation**: Evolves neural network weights and biases using controlled randomness to improve driving performance.
 
+- **Visualization**: Draws the neural network on canvas with nodes, weights, biases and output activations.
 
 
 
-### Local development
+
+### Local Development & Setup
 
  Getting started with the project locally
 - Fork the repository
@@ -47,16 +52,19 @@ If you don't have the extension in your VS Code, you can install it from here - 
 
 ### Tech Stack
 
-**HTML5, CSS3, Javascript (ES6), ES-Lint, Prettier**
+**HTML5, CSS3, Javascript (ES6), ES-Lint**
 
 
 ### Usage
+
+- Update the `N=1` to `N=1000` in `main.js`. This runs multiple cars in parallel, allowing for faster mutation and testing of the neural network. Then click on the save `🗃️` button to save the best-performing brain to localstorage.  
 
 - 🔦 Toggles the car’s sensor rays, helping you visualize how it detects the environment and obstacles. 
 
 - 🗃️ Stores the current best-performing car’s neural network (brain) in your browser’s local storage for reuse across sessions.
 
 - 🗑️ Deletes the saved brain from local storage, allowing for fresh training and potentially better results.
+
 
 ### Theory & Neural Network Basics
 
@@ -169,6 +177,11 @@ iii. Adaptive mutations - dynamic adjustment of the mutation rate or parameters 
 
 ### Screenshots
 
+<img width="1000" height="562" alt="SelfDrivingExample" src="https://github.com/user-attachments/assets/e139bfba-4a48-4e75-91c7-bbafac90f4a4" />
+
+
+
+https://github.com/user-attachments/assets/9ff8d806-3f79-4a43-9e42-7bb99c58b8e0
 
 
 
