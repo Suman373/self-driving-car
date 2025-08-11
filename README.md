@@ -14,14 +14,16 @@ You can visit this link for a live demo - [Click here](https://google.com)
 
 - [Key Features](#key-features)
 - [Local Development & Setup](#local-development--setup)
-- [Technologies Used](#technologies-used)
+- [Tech Stack](#tech-stack)
 - [Usage](#usage)
-- [Theory & Neural Network Basics](#neural-network-basics)
-- [Screenshot](#screenshots)
+- [Theory & Neural Network Basics](#theory--neural-network-basics)
+- [Screenshots](#screenshots)
 - [Acknowledgements](#acknowledgements)
-- [Feedbacks](#feedbacks)
+- [Feedback](#feedback)
 - [License](#license)
-### Key Features
+  
+
+### Key Features 
 
 - **Ray-based Sensor System**: Uses ray tracing to cast vision rays and detect obstacles such as other cars in traffic and road boundaries.
 
@@ -36,7 +38,7 @@ You can visit this link for a live demo - [Click here](https://google.com)
 
 
 
-### Local development
+### Local Development & Setup
 
  Getting started with the project locally
 - Fork the repository
@@ -169,6 +171,11 @@ iii. Adaptive mutations - dynamic adjustment of the mutation rate or parameters 
 
 ### Screenshots
 
+<img width="1000" height="562" alt="SelfDrivingExample" src="https://github.com/user-attachments/assets/e139bfba-4a48-4e75-91c7-bbafac90f4a4" />
+
+
+
+https://github.com/user-attachments/assets/9ff8d806-3f79-4a43-9e42-7bb99c58b8e0
 
 
 
@@ -185,5 +192,5 @@ For feedbacks reach out to me at iamsuman898@gmail.com
 
 ### License
 
-[MIT](https://choosealicense.com/licenses/mit/)
+[MIT](./LICENSE)
 
