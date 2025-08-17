@@ -1,25 +1,57 @@
-*,*::before,*::after{
-    margin:0;
-    padding:0;
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
 }
 
-body{
-    background:gray;
+body {
+    background: rgb(165, 165, 165);
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap:1rem;
+    gap: 1rem;
+    position: relative;
+    font-family: sans-serif;
+    z-index: 0;
 }
 
-#buttonsGrp{
+a{
+    text-decoration: none;
+}
+
+h1,h2,h3{
+    color:rgb(71, 44, 96);
+}
+h1 {
+    font-size: 1.2rem;
+}
+
+h2 {
+    font-size: 1.1rem;
+}
+
+h3 {
+    font-size: 1rem;
+}
+
+li {
+    font: 1rem;
+}
+
+li span{
+    color: rgb(42, 42, 110);
+}
+
+#buttonsGrp {
     display: flex;
     flex-direction: column;
     gap: 1rem;
 }
 
-#buttonsGrp button{
+#buttonsGrp button {
     border: none;
     border-radius: 10px;
     padding: 5px;
@@ -27,14 +59,66 @@ body{
     place-content: center;
 }
 
-#buttonsGrp button:hover{
+#buttonsGrp button:hover {
     background-color: skyblue;
 }
 
-#carCanvas{
-    background:#ccccccee;
+#carCanvas {
+    background: #ccccccee;
 }
 
-#annCanvas{
-    background:#000;
+#annCanvas {
+    background: #000;
+}
+
+.information-section {
+    height: 100vh;
+    width: 20rem;
+    z-index: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: start;
+
+}
+
+.content-wrapper {
+    height: 100%;
+    padding: 2rem;
+    background-color: white;
+    border-radius: 0.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    overflow-y: scroll;
+}
+.content-wrapper ul{
+    padding-left: 1.5rem;
+}
+
+footer{
+    position: fixed;
+    bottom: 1rem;
+    right:0.5rem;
+    color:white;
+}
+
+.call-out{
+    position: fixed;
+    height: 6rem;
+    width: 6rem;
+    top:-3rem;
+    right:-3rem;
+    background-color: black;
+    display: grid;
+    place-content: center;
+    transform: rotate(45deg);
+}
+.call-out a{
+    font-size: 1.5rem;
+    margin-top: 3rem;
+    color: white;
 }

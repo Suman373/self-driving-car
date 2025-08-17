@@ -24,10 +24,10 @@ export default defineConfig([
     }
      },
     rules: {
-      "no-unused-vars": "warn",           // Warn about unused variables
-      "no-console": "off",                // Allow console.log in dev
-      "semi": ["error", "always"],        // Require semicolons
-      "eqeqeq": ["error", "always"]       // Always use === over ==
+      "no-unused-vars": "warn",           // unused variables
+      "no-console": "off",                // console.log in dev mode
+      "semi": ["error", "always"],        // mandatory semi colons
+      "eqeqeq": ["error", "always"]       // use === over ==
     }
   },
 

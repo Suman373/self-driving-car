@@ -29,14 +29,15 @@ You can visit this link for a live demo - [Click here](https://suman373.github.i
 
 - **Collision Detection**: Assesses damage based on polygon intersections with borders and traffic.
 
-
 - **Realistic Car Physics**: Acceleration, friction, and turning are handled like real world physics.
 
-- **Neural Network Control**: The car's movement decisions (forward, left, right, reverse) are driven by ANN outputs. (It also has key based controls for debugging purpose).
+- **Neural Network Control**: The car's movement decisions (forward, left, right, reverse) are driven by ANN outputs. 
 
 - **Genetic Mutation**: Evolves neural network weights and biases using controlled randomness to improve driving performance.
 
 - **Visualization**: Draws the neural network on canvas with nodes, weights, biases and output activations.
+
+- **Manual Driving Mode**: Enables user to manually drive the car with keyboard arrow keys.
 
 
 
@@ -56,13 +57,21 @@ If you don't have the extension in your VS Code, you can install it from here - 
 
 ### Usage
 
-- Update the `N=1` to `N=1000` in `main.js`. This runs multiple cars in parallel, allowing for faster mutation and testing of the neural network. Then click on the save `🗃️` button to save the best-performing brain to localstorage.  
-
-- 🔦 Toggles the car’s sensor rays, helping you visualize how it detects the environment and obstacles. 
-
-- 🗃️ Stores the current best-performing car’s neural network (brain) in your browser’s local storage for reuse across sessions.
-
-- 🗑️ Deletes the saved brain from local storage, allowing for fresh training and potentially better results.
+<li><span>Toggle training (⚙️):</span> Switches between Simulation (1 car) and Training (many cars). 
+</li>
+<li><span>Toggle car sensor (🔦):</span> Toggles the visibility of the sensor rays on the active
+    car.
+</li>
+<li><span>Toggle control type (🧠):</span> Switches the active car between AI control and manual
+    control
+    (using keyboard arrow keys).</li>
+<li><span>Save car brain (🗃️):</span> Saves the neural network of the best-performing AI car to
+    your
+    browser's storage.</li>
+<li><span>Discard car brain (🗑️):</span> Deletes the saved neural network.</li>
+<li><span>Restart (🔃):</span> Resets the active car, useful for getting back on the road after a
+    crash.
+</li>
 
 
 ### Theory & Neural Network Basics
@@ -162,21 +171,13 @@ iii. Adaptive mutations - dynamic adjustment of the mutation rate or parameters 
 
 #### Genetic Algorithm For the Car
 
-
-
-
-
-
-
-
-
-
-
+During parallelization, the biases and weights of the networks are randomly mutated to evolve the best-performing driving strategy.
+The best performing car can be saved to localstorage and in next training the cars will use the best-performing brain from previous stage and undergo the mutation again for better results.
 
 
 ### Screenshots
 
-<img width="1000" height="562" alt="SelfDrivingExample" src="https://github.com/user-attachments/assets/e139bfba-4a48-4e75-91c7-bbafac90f4a4" />
+<img width="1400" height="661" alt="Image" src="https://github.com/user-attachments/assets/155c9f79-a7c6-4c4c-866f-942be5fd2c77" />
 
 
 

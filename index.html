@@ -6,16 +6,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Self driving car with ANN</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
+        integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
+    <aside class="information-section">
+        <div class="content-wrapper">
+            <h2>Mode - <span id="training-mode-h1"></span></h2>
+            <h2>Parallelization - <span id="parallel-h1"></span></h2>
+            <h2>Car(s) - <span id="numcars-h1"></span></h2>
+            <h2>Action Index</h2>
+            <h3>Modes</h3>
+            <ul>
+                <li><span>Simulation Mode:</span> Shows a single car for testing or demonstration.</li>
+                <li><span>Training Mode:</span> Uses multiple cars for parallel AI training.</li>
+            </ul>
+            <h3>Controls</h3>
+            <ul>
+                <li><span>Toggle training (⚙️):</span> Switches between Simulation (1 car) and Training (many cars).
+                </li>
+                <li><span>Toggle car sensor (🔦):</span> Toggles the visibility of the sensor rays on the active
+                    car.
+                </li>
+                <li><span>Toggle control type (🧠):</span> Switches the active car between AI control and manual
+                    control
+                    (using keyboard arrow keys).</li>
+                <li><span>Save car brain (🗃️):</span> Saves the neural network of the best-performing AI car to
+                    your
+                    browser's storage.</li>
+                <li><span>Discard car brain (🗑️):</span> Deletes the saved neural network.</li>
+                <li><span>Restart (🔃):</span> Resets the active car, useful for getting back on the road after a
+                    crash.
+                </li>
+            </ul>
+        </div>
+    </aside>
+    <div class="call-out">
+        <a href="https://github.com/Suman373/self-driving-car" target="_blank" rel="no-opener"
+            referrerpolicy="no-referrer">
+            <i class="fa-brands fa-github"></i>
+        </a>
+    </div>
     <canvas id="carCanvas"></canvas>
     <div id="buttonsGrp">
-        <button onclick="toggleRays()">🔦</button>
-        <button onclick="save()">🗃️</button>
-        <button onclick="discard()">🗑️</button>
+        <button title="Toggle training" onclick="toggleParallelization()">⚙️</button>
+        <button title="Toggle car sensor" onclick="toggleRays()">🔦</button>
+        <button title="Toggle control type" onclick="toggleManualDrive()">🧠</button>
+        <button title="Save car brain" onclick="save()">🗃️</button>
+        <button title="Discard car brain" onclick="discard()">🗑️</button>
+        <button title="Restart" onclick="restartCar()">🔃</button>
     </div>
     <canvas id="annCanvas"></canvas>
+    <footer>
+        <p>&copy; 2025 self-driving-car-ann</p>
+    </footer>
     <script src="scripts/utils.js"></script>
     <script src="scripts/road.js"></script>
     <script src="scripts/visualizer.js"></script>
