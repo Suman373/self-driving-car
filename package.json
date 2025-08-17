@@ -4,7 +4,7 @@
   "keywords": [],
   "author": "Suman Roy",
   "license": "MIT",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
