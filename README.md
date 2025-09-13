@@ -18,7 +18,6 @@ You can visit this link for a live demo - [Click here](https://suman373.github.i
 - [Usage](#usage)
 - [Theory & Neural Network Basics](#theory--neural-network-basics)
 - [Screenshots](#screenshots)
-- [Acknowledgements](#acknowledgements)
 - [Feedback](#feedback)
 - [License](#license)
   
@@ -183,12 +182,6 @@ The best performing car can be saved to localstorage and in next training the ca
 
 https://github.com/user-attachments/assets/9ff8d806-3f79-4a43-9e42-7bb99c58b8e0
 
-
-
-### Acknowledgements
-
- - [Radu Mariescu-Istodor](https://www.youtube.com/@Radu)
- - [Readme Editor](https://readme.so/editor)
 
 
 ### Feedback
